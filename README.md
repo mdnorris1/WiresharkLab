@@ -16,96 +16,91 @@ The last window is the hex for the packet.
 
 Please select Statistics > HTTP > Requests:
 
-![](attachments/Clipboard_2020-12-09-18-42-30.png)
-
 This will show us the various HTTP requests for the capture:
 
-![](attachments/Clipboard_2020-12-09-18-43-37.png)
-
+<br/>
+<img src="https://github.com/mdnorris1/WiresharkLab/blob/main/assets/css/http%20requests.png" height="80%" width="80%" alt="ifconfig command"/>
+<br />
 
 Now, let's look at Statistics > Conversations:
 
-![](attachments/Clipboard_2020-12-09-18-45-30.png)
-
 This will give us a breakdown of who was talking to whom:
 
-![](attachments/Clipboard_2020-12-09-18-46-16.png)
+<br/>
+<img src="https://github.com/mdnorris1/WiresharkLab/blob/main/assets/css/conversations2.png" height="80%" width="80%" alt="ifconfig command"/>
+<br />
 
 Please select IPv4:
 
-![](attachments/Clipboard_2020-12-09-18-46-38.png)
-
 Then click on the top of the packets column twice:
 
-![](attachments/Clipboard_2020-12-09-18-47-21.png)
+<br/>
+<img src="https://github.com/mdnorris1/WiresharkLab/blob/main/assets/css/packets3.png" height="80%" width="80%" alt="ifconfig command"/>
+<br />
 
 This gives us a breakdown of who was chatting with what system the most.  Click it again and it will sort the opposite direction and show you the least:
 
-![](attachments/Clipboard_2020-12-09-18-48-14.png)
-
 Really want to know what those systems were saying to each other?  Right click on a conversation and select Apply as Filter > Selected > A<->B
 
-![](attachments/Clipboard_2020-12-09-18-49-33.png)
+<br/>
+<img src="https://github.com/mdnorris1/WiresharkLab/blob/main/assets/css/filter4.png" height="80%" width="80%" alt="ifconfig command"/>
+<br />
 
 You should see the main Wireshark screen change
 
-Then, close the Conversations window:
+Then, close the Conversations window.
 
 Notice the following in the filter bar
 
 `ip.addr==68.183.138.51 && ip.addr==192.168.99.52`
 
-![](attachments/Clipboard_2020-12-09-18-51-35.png)
+<br/>
+<img src="https://github.com/mdnorris1/WiresharkLab/blob/main/assets/css/filterbar5.png" height="80%" width="80%" alt="ifconfig command"/>
+<br />
 
 This is saying:
 
 "IP address equals 68.183.138.51 And IP address equals 192.168.99.52"
 
-If a packet meets both of those critiera it is displayed:
-
-![](attachments/Clipboard_2020-12-09-18-53-19.png)
+If a packet meets both of those critiera it is displayed.
 
 Now, right-click on any of the packets and select Follow > TCP Stream:
 
-![](attachments/Clipboard_2020-12-09-18-54-10.png)
-
 This is showing the request (in red) and the response (in blue) between our two systems:
 
-![](attachments/Clipboard_2020-12-09-18-55-09.png)
+<br/>
+<img src="https://github.com/mdnorris1/WiresharkLab/blob/main/assets/css/request6.png" height="80%" width="80%" alt="ifconfig command"/>
+<br />
 
-Anything look strange there?  If you look closely, there is a lot of encoded PowerShell.
+There is a lot of encoded PowerShell here.
 
-Now, let's play with some basic filters in the filter bar.  We have already seen how Wireshark can filter on IP addresses.  But we can also filter on protocols.
+I then got to try some basic filters in the filter bar, so after filtering on IP addresses, I was now filtering on protocols.
 
-To start, just type l.
-
-Notice how Wireshark tries to help you with possible completion options as you type.
-
-Now finish typing llmnr.
+using the filter: llmnr.
 
 Then hit enter.
-
-![](attachments/Clipboard_2020-12-11-08-57-52.png)
 
 Notice that when you type llmnr and hit enter, Wireshark shows you all packets that are that protocol
 
 Now try ipv6 and hit enter:
 
-![](attachments/Clipboard_2020-12-11-08-58-47.png)
-
 This allows you to very quickly drill in on any specific protocols you are reviewing in a packet capture.
 
-Remember the PowerShell from tcpdump?  It had the string New-Object? Well, we can search though all the http traffic looking for that specific string:
+<br/>
+<img src="https://github.com/mdnorris1/WiresharkLab/blob/main/assets/css/ipv67.png" height="80%" width="80%" alt="ifconfig command"/>
+<br />
 
-Put the following into the filter bar:
+We had previously found the string New-Object in tcpdump so now I could search though all the http traffic looking for that specific string, by putting the following into the filter bar:
 
 http contains "New-Object"
 
-![](attachments/Clipboard_2020-12-11-09-02-28.png)
-
 With Wireshark, we can search through all our packets looking for specific strings and data.
 
+<br/>
+<img src="https://github.com/mdnorris1/WiresharkLab/blob/main/assets/css/newobject8.png" height="80%" width="80%" alt="ifconfig command"/>
+<br />
 
+Hope you enjoyed the walkthrough of the project!
 
 
 
