@@ -2,7 +2,7 @@
 
 As part of the fantastic Antisyphon training with John Strand, I got to use packet captures to analyze network traffic.
 
-Firts I opened magnitude_1hr in the Open Capture File box. 
+First I opened magnitude_1hr in the Open Capture File box. 
 
 When Wireshark opens, you will see packets represented in three different windows.
 
